@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDO Planner | Pearl of the Indian Ocean</title>
+    <!--title logo---><link rel="shortcut icon" href="assets/images/Logo1.png"> <!--title logo--->
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/styles/home.css">
+    <link rel="stylesheet" href="assets/styles/todo.css">
+</head>
+<body>
+    <header>
+        <div id="header-about">
+            <nav>
+                <h2 style="float: left;padding-left: 20px;"><a href="index.html" style="text-decoration: none; color: aquamarine;">Pearl of the<span> Indian Ocean</span></a></h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="tourism.html">Tourism</a></li>
+                    <li><a href="todo.html">Planner</a></li>
+                    <li><a href="contactus.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="container">
+                
+            </div>
+        </div>
+        <div id="social-btn">
+            <a href="www.facebook.com" id="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="www.twitter.com" id="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="www.youtube.com" id="youtube"><i class="fa fa-youtube"></i></a>
+            <a href="www.linkedin.com" id="linkedin"><i class="fa fa-linkedin"></i></a>
+      </div>
+    </header> 
+    <section class="main">
+        <div style="float: inline-end;" class="button" onclick="window.print()" id="printlist"><i class="fa fa-print" style="color: black;"></i> Print</div>
+        <div id="app" class="container">
+            <h2>Todo List</h2>
+            <div v-if="!isEditing">   
+                <input type="text" v-model="todo">
+                <input type="submit" value="Add" @click="storeTodo" class="button">
+            </div>
+
+            <div v-else>
+            <input type="text" v-model="todo">
+            <input type="submit" value="Update" @click="updateTodo" class="button">
+        </div>
+
+        <ol>
+            <li v-for="(todo, index) in todos">
+            <div style="float: left; padding: 3px; width: auto;">{{ todo }}</div>
+            <button @click="removeTodo(index)" class="button delete-button"><i class="fa fa-trash"> </i> Delete</button>
+            <button @click="editTodo(index, todo)" class="button edit-button"><i class="fa fa-pencil-square-o"> </i> Edit</button>
+            </li>
+        </ol>
+    </div>
+</section>
+<section class="footer" style="padding-top: 20px;">
+    <!--img src="/assets/images/Logo.png" alt="Logo"--->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="FooterTable">
+    <tr>
+        <td width="23%">
+            
+        </td>
+            <td width="19%">
+                <h5>Our Agencies</h5>
+            </td>
+        <td width="37%">
+           <h5>Our Partners</h5>
+        </td>
+    </tr>
+    <tr>
+        <td width="23%">
+            <h5>
+                Tourism Hotline
+            </h5>
+        </td>
+            <td width="19%">
+                <i class="fa fa-caret-right"> </i><a href="https://www.sltda.gov.lk"> Sri Lanka Tourism Development Authority</a>
+            </td>
+        <td width="37%">
+            <i class="fa fa-caret-right"> </i><a href="https://www.srilankan.com/en_uk/lk"> Sri Lankan Airlines</a>
+        </td>
+    </tr>
+    <tr>
+        <td width="23%">
+            <p><i class="fa fa-phone-square"></i> 1912</p>
+        </td>
+            <td width="19%">
+                <i class="fa fa-caret-right"> </i><a href="https://meetinsrilanka.com"> Sri Lanka Tourism Convention Bureau</a>
+            </td>
+        <td width="37%">
+            <i class="fa fa-caret-right"> </i><a href="https://www.airport.lk/index"> Sri Lanka Airport & Aviation Services</a>
+        </td>
+    </tr>
+    <tr>
+        <td width="23%">
+            <h5>
+                Ambulance Service
+            </h5>
+        </td>
+            <td width="23%">
+                <i class="fa fa-caret-right"> </i><a href="https://www.slithm.edu.lk"> Sri Lanka Institute of Tourism & Hotel Management </a>
+            </td>
+        <td width="37%">
+            <i class="fa fa-caret-right"> </i><a href="https://www.immigration.gov.lk/"> Department of Immigration and Emigration</a>
+        </td>
+    </tr>
+    <tr>
+        <td width="23%">
+            <p><i class="fa fa-phone-square"></i> 1990</p>
+        </td>
+            <td width="19%">
+                <i class="fa fa-caret-right"> </i><a href="https://www.tourismmin.gov.lk"> Ministry Of tourism</a>
+            </td>
+        <td width="37%">
+            <i class="fa fa-caret-right"> </i><a href="https://eta.gov.lk/slvisa/"> Electronic Travel Authorization System</a>
+        </td>
+    </tr>
+</table>
+</section>  
+<footer>
+<div class="copyright">
+    &copy 2022 IDEAS & DESIGNED BY MMS. Aazeem, All right Reserved <a href="https://www.techinfogate.tk/">TechinfoGate</a>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>
+    new Vue({
+    el: '#app',
+
+    data: {
+        isEditing: false,
+        todo: '',
+        todos: [],
+        selectedTodo: null
+    },
+
+        methods: {
+            storeTodo() {
+                this.todos.push(this.todo)
+                this.todo = ''
+            },
+
+            removeTodo(index) {
+                this.todos.splice(index, 1)
+            },
+
+            updateTodo() {
+                this.todos.splice(this.selectedIndex, 1, this.todo)
+                this.todo = ''
+                this.isEditing = false
+            },
+
+            editTodo(index, todo) {
+                this.isEditing = true
+                this.todo = todo
+                this.selectedIndex = index
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

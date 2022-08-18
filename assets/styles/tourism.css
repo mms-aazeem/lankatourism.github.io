@@ -1,0 +1,159 @@
+#header-about{
+    width:100%;
+    height:600px;
+    background-image: url("../images/Sri-Lanka-Beach.jpg");
+    background-size: cover;
+    opacity: 0.8;
+    vertical-align: middle;
+}
+.main{
+    float: left;
+    padding-left: 15%; 
+    padding-top: 30px;
+    padding-right: 20%;
+    padding-bottom: 30px;
+    background-color: #fff;
+}
+.main h3{
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: #088;
+}
+.main p{
+    line-height: 180%;
+    float: left;
+    padding-bottom: 20px;
+    text-align: justify;
+}
+.card1-column .card1-content 
+{
+  padding-left: 250px;
+  padding-right: 200px;
+  padding-bottom: 5px;
+  background-color: white;
+  font-size: 15px;
+}
+.card1-column 
+{
+  padding-top: 40px;
+  font-family: Garamond, serif;
+}
+.img1{
+  height: 180px;
+  width: 100%;
+}
+.card1 {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 30%;
+  display: inline-block;
+  padding: 15px;
+}
+.card1:hover {
+  box-shadow: 0 8px 16px 0 #088;
+}
+.card1-container {
+  padding: 2px 14px;
+  width: 100%;
+  height: 80px;
+}
+.card1-container p{
+  text-align: center;
+  font-size: 12px;
+}
+.card1-container h4{
+  padding-top: 20px;
+  text-align: center;
+  font-size: 18px;
+  color: #088;
+}
+.row:after 
+{
+  content: "";
+  display: table;
+  clear: both;
+  padding-bottom: 20px;
+}
+.overlay {
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+}
+
+.overlay-content {
+  position: relative;
+  top: 46%;
+  width: 80%;
+  text-align: center;
+  margin-top: 30px;
+  margin: auto;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  cursor: pointer;
+  color: white;
+}
+
+.overlay .closebtn:hover {
+  color: #ccc;
+}
+
+.overlay input[type=text] {
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  float: left;
+  width: 80%;
+  background: white;
+}
+
+.overlay input[type=text]:hover {
+  background: #f1f1f1;
+}
+
+.overlay button {
+  float: left;
+  width: 20%;
+  padding: 15px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
